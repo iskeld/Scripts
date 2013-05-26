@@ -1,3 +1,4 @@
 Various scripts
 
+NuGetPack - Runs NuGet pack for all .csproj files which has corresponding (residing in the same directory) .nuspec file.
 RunIf - Runs given executable if it is not already running.
