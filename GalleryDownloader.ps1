@@ -28,6 +28,21 @@ if ($sourceParams.ContainsKey("outputDir")) {
     $outputDir = "output"
 }
 
+if ($sourceParams.Get_Item("indexed") -eq $True) {
+    $FileNameGenerator = {
+        param($index, $fileName)
+
+        $indexStr = $index.ToString("000") + "_"
+        return "$indexStr$fileName"
+    }
+} else {
+    $FileNameGenerator = {
+        param($index, $fileName)
+
+        return "$fileName"
+    }
+}
+
 $agilityPackPathPattern = "lib\HtmlAgilityPack.[0-9].[0-9].[0-9]\lib\Net40\HtmlAgilityPack.dll"
 $scrapySharpPathPattern = "lib\ScrapySharp.*\lib\Net40\ScrapySharp.dll"
 
@@ -52,6 +67,7 @@ if ((Test-Path $rootOutput -PathType Container) -eq $False) {
     New-Item -ItemType directory -Path $rootOutput | Out-Null
 }
 
+[int] $index = 0
 foreach ($node in $nodes) {
     $imgSrc = GetImgSource $node
     [string] $fileName = [System.IO.Path]::GetFileName($imgSrc)
@@ -62,9 +78,14 @@ foreach ($node in $nodes) {
     if ($fileName.EndsWith("-jpg") -eq $True) {
         $fileName = $fileName.Replace("-jpg", ".jpg")
     }
+
+    $fileName = &$FileNameGenerator $index $fileName
+
     $outputPath = Join-Path $rootOutput $fileName
 
     Write-Host "Downloading from $imgSrc to $outputPath"
 
     $wc.DownloadFile($imgSrc, $outputPath)
+
+    $index++
 }

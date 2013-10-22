@@ -5,5 +5,5 @@ function GetImgSource($node) {
     return $imgSrc
 }
 
-$sourceParams = @{ "url" = "http://testurl/dummy/gallery"; "selector" = "div#mygallery div.boximage div.details a.modal-button"; "outputDir" = "output_gallery"}
+$sourceParams = @{ "url" = "http://testurl/dummy/gallery"; "selector" = "div#mygallery div.boximage div.details a.modal-button"; "outputDir" = "output_gallery"; "indexed" = $True}
 #>
