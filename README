@@ -2,6 +2,8 @@ Various scripts
 
 GalleryDownloader - downloads images from the specified url and conditions (CSS selector, node attributes, etc.)
 ************
+ImgOrientationFixer - Rotates JPG images in the given directory, according to their EXIF rotation (http://jpegclub.org/exif_orientation.html) and sets it to 1 (default).
+************
 NuGetPack - Runs NuGet pack for all .csproj files which has corresponding (residing in the same directory) .nuspec file.
 ************
 RunIf - Runs given executable if it is not already running.
