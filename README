@@ -1,5 +1,7 @@
 Various scripts
 
+DiscogsFetch - downloads music release info (tracks, etc.) from Discogs DB
+************
 GalleryDownloader - downloads images from the specified url and conditions (CSS selector, node attributes, etc.)
 ************
 ImgOrientationFixer - Rotates JPG images in the given directory, according to their EXIF rotation (http://jpegclub.org/exif_orientation.html) and sets it to 1 (no rotation).
