@@ -6,6 +6,8 @@ GalleryDownloader - downloads images from the specified url and conditions (CSS 
 ************
 ImgOrientationFixer - Rotates JPG images in the given directory, according to their EXIF rotation (http://jpegclub.org/exif_orientation.html) and sets it to 1 (no rotation).
 ************
+jquery-clicks - Allows to handle both single and double click events for the same DOM element.
+************
 NuGetPack - Runs NuGet pack for all .csproj files which has corresponding (residing in the same directory) .nuspec file.
 ************
 RunIf - Runs given executable if it is not already running.
